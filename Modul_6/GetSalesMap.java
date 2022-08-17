@@ -38,6 +38,7 @@ public class GetSalesMap {
         Scanner scan = new Scanner(reader);
 
         while (scan.hasNextLine()) {
+
             StringBuilder strB = new StringBuilder(scan.nextLine());
             String strValue = strB.substring(0, strB.indexOf(" "));
             Long longValue = new Scanner(strB.substring(strB.indexOf(" ") + 1)).nextLong();
@@ -45,11 +46,14 @@ public class GetSalesMap {
 //            System.out.println(strValue);
 //            System.out.println(longValue);
 
-            if (!result.containsKey(strValue)) {
-                result.put(strValue, longValue);
-            } else {
-                result.replace(strValue, result.get(strValue), result.get(strValue) + longValue);
-            }
+            result.merge(strValue,longValue,(a, b) -> b + result.get(strValue));
+//            result.forEach((a, b) -> System.out.println(strValue + " " + longValue));
+
+//            if (!result.containsKey(strValue)) {
+//                result.put(strValue, longValue);
+//            } else {
+//                result.replace(strValue, result.get(strValue), result.get(strValue) + longValue);
+//            }
         }
         reader.close();
         return result;

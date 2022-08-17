@@ -8,7 +8,7 @@ public class MethodGenericTest {
         for (int i = 0; i < list.size(); i++)
             list.set(i, val);
     }
-/* типизированный метод fill легкл работает с разными типами данных */
+/* типизированный метод fill легко работает с разными типами данных */
 
     public static void main(String[] args) {
 

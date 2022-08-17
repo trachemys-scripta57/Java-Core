@@ -260,7 +260,7 @@ public class MailMessageTest {
         MailService<String> mailService = new MailService<>();
 
 // Обработка списка писем почтовым сервисом
-        messages.stream().forEachOrdered(mailService);
+        messages.forEach(mailService);
 
 // Получение и проверка словаря "почтового ящика",
 //   где по получателю можно получить список сообщений, которые были ему отправлены
